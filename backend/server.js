@@ -7,7 +7,7 @@ const bodyparser = require('body-parser');
 /**
  * Database settings
  */
-mongoose.connect('mongodb+srv://manos123:manos123@contactsapp-9zyr8.gcp.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true }, (err) => {
+mongoose.connect('mongodb://localhost:27017/contact_manager', { useNewUrlParser: true }, (err) => {
     if (!err) { console.log('MongoDB Connection Succeeded.') }
     else { console.log('Error in DB connection : ' + err) }
 });

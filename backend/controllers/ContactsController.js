@@ -78,7 +78,7 @@ function deleteRecord(req, res) {
  * @param {*} res 
  */
 function updateRecord(req, res) {
-    Contact.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true })
+    Contact.findOneAndUpdate({ _id: req.body.id }, req.body, { new: true })
         .then((r) => res.send(r), (e) => handleError(e, res));
 }
 
