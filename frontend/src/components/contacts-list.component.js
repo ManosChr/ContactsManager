@@ -35,11 +35,12 @@ export default class ContactsList extends Component {
 
     deleteContact(id) {
         axios.delete('http://localhost:5000/api/v1.0/contacts/'+id)
-          .then(response => { console.log(response.data)});
-    
-        this.setState({
-          contacts: this.state.contacts.filter(el => el._id !== id)
-        })
+          .then(response => { 
+            console.log(response.data);
+            this.setState({
+              contacts: this.state.contacts.filter(el => el._id !== id)
+            })
+          });  
     }
 
     contactList() {

@@ -55,7 +55,7 @@ function readRecords(res) {
  */
 function readSingleRecord(req, res) {
     Contact
-        .findById({ _id: req.params._id })
+        .findById({ _id: req.params.id })
         .then((r) => res.send(r), (e) => handleError(e, res));
 }
 
@@ -67,7 +67,7 @@ function readSingleRecord(req, res) {
  */
 function deleteRecord(req, res) {
     Contact
-        .findOneAndDelete({ _id: req.params._id })
+        .findOneAndDelete({ _id: req.params.id })
         .then((r) => res.send(r), (e) => handleError(e, res));
 }
 

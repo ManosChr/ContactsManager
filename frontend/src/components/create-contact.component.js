@@ -58,7 +58,7 @@ export default class CreateContact extends Component {
         axios.post('http://localhost:5000/api/v1.0/contacts', contact)
           .then(res => console.log(res.data));
     
-        // window.location = '/';
+        window.location = '/';
     }
 
     render() {

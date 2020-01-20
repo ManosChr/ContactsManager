@@ -63,6 +63,7 @@ export default class EditContact extends Component {
         e.preventDefault();
     
         const contact = {
+          id: this.props.match.params.id,
           surname: this.state.surname,
           email: this.state.email,
           phones: this.state.phones,
@@ -74,7 +75,7 @@ export default class EditContact extends Component {
         axios.put('http://localhost:5000/api/v1.0/contacts', contact)
           .then(res => console.log(res.data));
     
-        // window.location = '/';
+        window.location = '/';
     }
 
     render() {
