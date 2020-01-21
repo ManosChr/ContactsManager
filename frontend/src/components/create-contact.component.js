@@ -86,9 +86,11 @@ export default class CreateContact extends Component {
               : "invalid email address (e.g. mail@mail.com)";
             break;
           case "phones":
-            formErrors.phones = phoneValidationRegex.test(value) 
-            ? "" 
-            : "10 digits required";
+            formErrors.phones = value.split(",")
+            .map(phone => phoneValidationRegex.test(phone))
+            .includes(false)
+            ? "type 10 digit numbers separated by commas ','"
+            : "" ;
             break;
           default:
             break;

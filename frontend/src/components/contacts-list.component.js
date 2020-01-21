@@ -7,9 +7,9 @@ const Contact = props => (
       <td>{props.contact.surname}</td>
       <td>{props.contact.email}</td>
       <td>
-        <ol>
-          {props.contact.phones.map(phone => <li>phone</li>)}
-        </ol>
+        
+          {props.contact.phones.map(phone => <li>{phone}</li>)}
+        
       </td>
       <td>{props.contact.address}</td>
       <td>
@@ -38,13 +38,15 @@ export default class ContactsList extends Component {
     }
 
     deleteContact(id) {
+      if(window.confirm("Are you sure you want to delete this contact?")) {
         axios.delete('http://localhost:5000/api/v1.0/contacts/'+id)
-          .then(response => { 
-            console.log(response.data);
-            this.setState({
-              contacts: this.state.contacts.filter(el => el._id !== id)
-            })
-          });  
+        .then(response => { 
+          console.log(response.data);
+          this.setState({
+            contacts: this.state.contacts.filter(el => el._id !== id)
+          })
+        });  
+      }  
     }
 
     contactList() {
