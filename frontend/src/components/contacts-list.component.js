@@ -7,9 +7,7 @@ const Contact = props => (
       <td>{props.contact.surname}</td>
       <td>{props.contact.email}</td>
       <td>
-        
-          {props.contact.phones.map(phone => <li>{phone}</li>)}
-        
+        {props.contact.phones.map(phone => <li>{phone}</li>)}
       </td>
       <td>{props.contact.address}</td>
       <td>

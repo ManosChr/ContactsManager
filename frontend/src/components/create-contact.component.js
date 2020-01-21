@@ -24,12 +24,7 @@ export default class CreateContact extends Component {
     constructor(props){
         super(props);
 
-        // this.onChangeName = this.onChangeName.bind(this);
-        // this.onChangeEmail = this.onChangeEmail.bind(this);
-        // this.onChangePhones = this.onChangePhones.bind(this);
-        // this.onChangeAddress = this.onChangeAddress.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-
         this.onChange = this.onChange.bind(this);
 
         this.state = {
@@ -42,33 +37,9 @@ export default class CreateContact extends Component {
                 email: '',
                 phones: [],
                 address: ''
-              }
-        };
+            }
+        };  
     }
-
-    // onChangeName(e) {
-    //     this.setState({
-    //         surname: e.target.value
-    //     })
-    // }
-    
-    // onChangeEmail(e) {
-    //     this.setState({
-    //         email: e.target.value
-    //     })
-    // }
-    
-    // onChangePhones(e) {
-    //     this.setState({
-    //       phones: e.target.value
-    //     })
-    // }
-    
-    // onChangeAddress(e) {
-    //     this.setState({
-    //       address: e.target.value
-    //     })
-    // }
 
     onChange = e => {
         e.preventDefault();
@@ -96,9 +67,9 @@ export default class CreateContact extends Component {
             break;
         }
     
-        this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+        this.setState({ formErrors, [name]: value}, this.validateForm); 
     };
-    
+
     onSubmit(e) {
         e.preventDefault();
         if (formValid(this.state)) {
@@ -131,8 +102,7 @@ export default class CreateContact extends Component {
                     <label>Name: * </label>
                     <input  type="text"
                         required
-                        className={formErrors.surname.length > 0 ? "error" : null}
-                        className="form-control"
+                        className={`form-control ${formErrors.surname.length > 0 ? "error" : null}`}
                         name="surname"
                         noValidate
                         value={this.state.surname}
@@ -146,8 +116,7 @@ export default class CreateContact extends Component {
                     <label>Email: * </label>
                     <input  type="text"
                         required
-                        className={formErrors.email.length > 0 ? "error" : null}
-                        className="form-control"
+                        className={`form-control ${formErrors.email.length > 0 ? "error" : null}`}
                         name="email"
                         noValidate
                         value={this.state.email}
@@ -184,7 +153,7 @@ export default class CreateContact extends Component {
                     </div>
 
                     <div className="form-group">
-                    <input type="submit" value="Create Contact" className="btn btn-primary" />
+                    <input type="submit" value="Create Contact" className="btn btn-primary" disabled={!formValid(this.state)} />
                     </div>
 
                     <div>* These fields are required.</div>
