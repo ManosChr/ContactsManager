@@ -42,6 +42,8 @@ export default class EditContact extends Component {
     }
 
     componentDidMount() {
+        this.setState({ isValid: false })
+
         // Get id from the url
         axios.get('http://localhost:5000/api/v1.0/contacts/'+this.props.match.params.id)
           .then(response => {
@@ -84,6 +86,7 @@ export default class EditContact extends Component {
         }
     
         this.setState({ formErrors, [name]: value}, this.validateForm); 
+        this.setState({isValid:true});
     };
 
     onSubmit(e) {
@@ -93,7 +96,7 @@ export default class EditContact extends Component {
                 id: this.props.match.params.id,
                 surname: this.state.surname,
                 email: this.state.email,
-                phones: this.state.phones.split(","),
+                phones: Array.isArray(this.state.phones)?this.state.phones:this.state.phones.split(","),
                 address: this.state.address
             }
 
@@ -170,7 +173,7 @@ export default class EditContact extends Component {
                     </div>
 
                     <div className="form-group">
-                    <input type="submit" value="Edit Contact" className="btn btn-primary" disabled={!formValid(this.state)} />
+                    <input type="submit" value="Edit Contact" className="btn btn-primary" disabled={this.state.isValid===false?true:!formValid(this.state)} />
                     </div>
 
                     <div>* These fields are required.</div>

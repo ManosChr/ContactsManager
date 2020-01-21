@@ -45,7 +45,9 @@ npm install
 
 - install mongoDB locally if not installed
 
-- cd ContactsManager/backend
+```
+cd ContactsManager/backend
+```
 
 - Run server (localhost:5000)
 
@@ -53,7 +55,9 @@ npm install
 node server.js
 ```
 
-- cd ContactsManager/frontend
+```
+cd ContactsManager/frontend
+```
 
 - serving locally with live reload
 
