@@ -6,7 +6,11 @@ const Contact = props => (
     <tr>
       <td>{props.contact.surname}</td>
       <td>{props.contact.email}</td>
-      <td>{props.contact.phones}</td>
+      <td>
+        <ol>
+          {props.contact.phones.map(phone => <li>phone</li>)}
+        </ol>
+      </td>
       <td>{props.contact.address}</td>
       <td>
         <Link to={"/edit/"+props.contact._id}>edit</Link> | <a href="#" onClick={() => { props.deleteContact(props.contact._id) }}>delete</a>

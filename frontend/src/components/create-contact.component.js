@@ -103,7 +103,7 @@ export default class CreateContact extends Component {
             const contact = {
                 surname: this.state.surname,
                 email: this.state.email,
-                phones: this.state.phones,
+                phones: this.state.phones.split(","),
                 address: this.state.address
             }
 
@@ -126,7 +126,7 @@ export default class CreateContact extends Component {
                 <h3>Create New Contact</h3>
                 <form onSubmit={this.onSubmit} noValidate>
                     <div className="form-group"> 
-                    <label>Name: </label>
+                    <label>Name: * </label>
                     <input  type="text"
                         required
                         className={formErrors.surname.length > 0 ? "error" : null}
@@ -141,7 +141,7 @@ export default class CreateContact extends Component {
                         )}
                     </div>
                     <div className="form-group"> 
-                    <label>Email: </label>
+                    <label>Email: * </label>
                     <input  type="text"
                         required
                         className={formErrors.email.length > 0 ? "error" : null}
@@ -184,6 +184,8 @@ export default class CreateContact extends Component {
                     <div className="form-group">
                     <input type="submit" value="Create Contact" className="btn btn-primary" />
                     </div>
+
+                    <div>* These fields are required.</div>
                 </form>
             </div>
         );
