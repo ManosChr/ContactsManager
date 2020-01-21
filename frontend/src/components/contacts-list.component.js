@@ -52,7 +52,7 @@ export default class ContactsList extends Component {
     render() {
         return (
             <div>
-                <h3>Logged Contacts</h3>
+                <h3>Saved Contacts</h3>
                 <table className="table">
                 <thead className="thead-light">
                     <tr>
@@ -60,6 +60,7 @@ export default class ContactsList extends Component {
                     <th>Email</th>
                     <th>Phone(s)</th>
                     <th>Address</th>
+                    <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
