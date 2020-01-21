@@ -41,6 +41,10 @@ export default class CreateContact extends Component {
         };  
     }
 
+    componentDidMount() {
+        this.setState({ isValid: false })
+    }
+
     onChange = e => {
         e.preventDefault();
         const { name, value } = e.target;
@@ -68,6 +72,7 @@ export default class CreateContact extends Component {
         }
     
         this.setState({ formErrors, [name]: value}, this.validateForm); 
+        this.setState({isValid:true});
     };
 
     onSubmit(e) {
@@ -153,7 +158,7 @@ export default class CreateContact extends Component {
                     </div>
 
                     <div className="form-group">
-                    <input type="submit" value="Create Contact" className="btn btn-primary" disabled={!formValid(this.state)} />
+                    <input type="submit" value="Create Contact" className="btn btn-primary" disabled={this.state.isValid===false?true:!formValid(this.state)} />
                     </div>
 
                     <div>* These fields are required.</div>

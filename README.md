@@ -1,13 +1,67 @@
-# Back end application with nodejs and express
+# Contact Manager
 
-### Installation/Run
+## Description
 
-#### Clone repository
+> This application displays a list of personal contacts.
+> The user can create new contacts and edit or delete existing ones.
+> The app uses form validation. Name and Email fields are required.
+> The user has the ability to add one or more phone numbers for each contact.
+>
+>**The app uses:**
+>* Back-End: Nodejs, Express and MongoDB
+>* Front-End: React
 
-#### Run npm install
-```cmd
+## Instructions for running locally
+
+- clone repo
+
+```
+git clone https://github.com/ManosChr/ContactsManager.git
+```
+
+- cd to backend folder
+
+```
+cd ContactsManager/backend
+```
+
+- install locally (generates static files)
+
+```
 npm install
 ```
+
+- cd to frontend folder
+
+```
+cd ContactsManager/frontend
+```
+
+- install locally (generates static files)
+
+```
+npm install
+```
+
+- install mongoDB locally if not installed
+
+- cd ContactsManager/backend
+
+- Run server (localhost:5000)
+
+```
+node server.js
+```
+
+- cd ContactsManager/frontend
+
+- serving locally with live reload
+
+```
+npm start
+```
+
+## Back end specifications
 
 #### Run server (localhost:5000)
 ```cmd
